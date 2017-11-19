@@ -1,0 +1,160 @@
+{
+    "name": "alwayson-insights",
+    "version": "0.1.0",
+    "publisher": "matticusau",
+    "engines": {
+        "vscode": "*"
+    },
+    "contributes": {
+        "insights": [
+            {
+                "id": "ag-replica-health-insight",
+                "contrib": {
+                    "name": "AG Replica Status",
+                    "provider": "MSSQL",
+                    "edition": [0,1,2,3,4],
+                    "gridItemConfig": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "type": {
+                        "pie": {
+                            "dataDirection": "vertical",
+                            "dataType": "number",
+                            "legendPosition": "top",
+                            "labelFirstColumn": false,
+                            "columnsAsLabels": false
+                        }
+                    },
+                    "queryFile": "./sql/replica_health.sql",
+                    "details": {
+                        "queryFile": "./sql/replica_health_detail.sql",
+                        "label": {
+                            "icon": "database",
+                            "column": "replica_server_name",
+                            "state": [
+                                {
+                                    "condition": {
+                                        "if": "equals",
+                                        "equals": "DISCONNECTED"
+                                    },
+                                    "color": "red"
+                                },
+                                {
+                                    "condition": {
+                                        "if": "equals",
+                                        "equals": "CONNECTED"
+                                    },
+                                    "color": "green"
+                                }
+                            ]
+                        },
+                        "value": "connected_state_desc",
+                        "actions": null
+                    }
+                }
+            },
+            {
+                "id": "ag-db-sync-insight",
+                "contrib": {
+                    "name": "AG DB Sync Status",
+                    "provider": "MSSQL",
+                    "edition": [0,1,2,3,4],
+                    "gridItemConfig": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "type": {
+                        "pie": {
+                            "dataDirection": "vertical",
+                            "dataType": "number",
+                            "legendPosition": "top",
+                            "labelFirstColumn": false,
+                            "columnsAsLabels": false
+                        }
+                    },
+                    "queryFile": "./sql/db_sync_health.sql",
+                    "details": {
+                        "queryFile": "./sql/db_health_detail.sql",
+                        "label": {
+                            "icon": "database",
+                            "column": "replica_server_name",
+                            "state": [
+                                {
+                                    "condition": {
+                                        "if": "equals",
+                                        "equals": "NOT_HEALTHY"
+                                    },
+                                    "color": "red"
+                                },
+                                {
+                                    "condition": {
+                                        "if": "equals",
+                                        "equals": "HEALTHY"
+                                    },
+                                    "color": "green"
+                                }
+                            ]
+                        },
+                        "value": "synchronization_health_desc",
+                        "actions": null
+                    }
+                }
+            },
+            {
+                "id": "ag-db-rpo-rto-insight",
+                "contrib": {
+                    "name": "AG DB Rto/Rpo",
+                    "provider": "MSSQL",
+                    "edition": [0,1,2,3,4],
+                    "gridItemConfig": {
+                        "sizex": 2,
+                        "sizey": 1
+                    },
+                    "type": {
+                        "bar": {
+                            "dataDirection": "vertical",
+                            "dataType": "number",
+                            "legendPosition": "top",
+                            "labelFirstColumn": false,
+                            "columnsAsLabels": true
+                        }
+                    },
+                    "queryFile": "./sql/db_rpo_rto_health.sql",
+                    "details": {
+                        "queryFile": "./sql/db_health_detail.sql",
+                        "label": {
+                            "icon": "database",
+                            "column": "replica_server_name",
+                            "state": [
+                                {
+                                    "condition": {
+                                        "if": "greaterthan",
+                                        "greaterthan": "0"
+                                    },
+                                    "color": "red"
+                                },
+                                {
+                                    "condition": {
+                                        "if": "equals",
+                                        "equals": "0"
+                                    },
+                                    "color": "green"
+                                },
+                                {
+                                    "condition": {
+                                        "if": "equals",
+                                        "equals": "NULL"
+                                    },
+                                    "color": "green"
+                                }
+                            ]
+                        },
+                        "value": "estimated_data_loss",
+                        "actions": null
+                    }
+                }
+            }
+        ]
+    }
+}
