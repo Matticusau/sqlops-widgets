@@ -11,7 +11,7 @@ Read more about SQL Operations Studio in the following resources:
 
 The following example shows the Database Dashboard Wizard configured with some built-in widgets and also our AlwaysOn Database RPO/RTO and Health Widget.
 
-![Database Dashboard](docs/images/database-dashboard.png)
+![Database Dashboard](Docs/images/database-dashboard.png)
 
 ## Insights Included
 
