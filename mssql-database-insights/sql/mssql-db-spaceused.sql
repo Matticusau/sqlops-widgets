@@ -1,6 +1,7 @@
 -- 
 -- Author: Matticusau
 -- Purpose: Provides summary data for the DB Space Used Insights Widget
+-- License: https://github.com/Matticusau/sqlops-widgets/blob/master/LICENSE
 -- 
 SELECT 
     -- CONVERT(decimal(18,2), SUM(size)/128.0) [file_size_mb] ,

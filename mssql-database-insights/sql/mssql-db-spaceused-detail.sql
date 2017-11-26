@@ -1,6 +1,7 @@
 -- 
 -- Author: Matticusau
 -- Purpose: Provides detailed data for the DB Space Used Insights Widget
+-- License: https://github.com/Matticusau/sqlops-widgets/blob/master/LICENSE
 -- 
 SELECT file_id
     , name [file_name]

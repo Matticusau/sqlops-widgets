@@ -1,6 +1,7 @@
 -- 
 -- Author: Matticusau
 -- Purpose: Provides summary data for the AlwaysOn DB Sync Insights Widget
+-- License: https://github.com/Matticusau/sqlops-widgets/blob/master/LICENSE
 -- 
 DECLARE @totalReplicaCnt INT = (
     SELECT COUNT(ar.replica_server_name)

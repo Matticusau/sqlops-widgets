@@ -1,0 +1,156 @@
+{
+    "name": "mssql-instance-insights",
+    "version": "0.1.0",
+    "publisher": "matticusau",
+    "engines": {
+        "vscode": "*"
+    },
+    "contributes": {
+        "insights": [
+            {
+                "id": "mssql-instance-waits",
+                "contrib": {
+                    "name": "Top 10 Waits",
+                    "provider": "MSSQL",
+                    "edition": [0,1,2,3,4],
+                    "gridItemConfig": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "type": {
+                        "horizontalBar": {
+                            "dataDirection": "vertical",
+                            "dataType": "number",
+                            "legendPosition": "none",
+                            "labelFirstColumn": false,
+                            "columnsAsLabels": false
+                        }
+                    },
+                    "queryFile": "./sql/mssql-instance-waits.sql",
+                    "details": {
+                        "queryFile": "./sql/mssql-instance-waits-detail.sql",
+                        "label": {
+                            "icon": "database",
+                            "column": "WaitType",
+                            "state": [
+                                {
+                                    "condition": {
+                                        "if": "greaterthan",
+                                        "greaterthan": "80"
+                                    },
+                                    "color": "red"
+                                },
+                                {
+                                    "condition": {
+                                        "if": "greaterthan",
+                                        "greaterthan": "40"
+                                    },
+                                    "color": "orange"
+                                },
+                                {
+                                    "condition": {
+                                        "if": "lessthan",
+                                        "lessthan": "41"
+                                    },
+                                    "color": "green"
+                                }
+                            ]
+                        },
+                        "value": "Percentage",
+                        "actions": null
+                    }
+                }
+            },
+            {
+                "id": "mssql-instance-xelsystem",
+                "contrib": {
+                    "name": "XEL System Stats",
+                    "provider": "MSSQL",
+                    "edition": [0,1,2,3,4],
+                    "gridItemConfig": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "type": {
+                        "line": {
+                            "dataDirection": "vertical",
+                            "dataType": "number",
+                            "legendPosition": "bottom",
+                            "labelFirstColumn": false,
+                            "columnsAsLabels": true
+                        }
+                    },
+                    "queryFile": "./sql/mssql-instance-xelsystem.sql",
+                    "details": {
+                        "queryFile": "./sql/mssql-instance-xelsystem.sql",
+                        "label": {
+                            "icon": "database",
+                            "column": "Event Time"
+                        },
+                        "actions": null
+                    }
+                }
+            },
+            {
+                "id": "mssql-instance-xelio",
+                "contrib": {
+                    "name": "XEL IO Stats",
+                    "provider": "MSSQL",
+                    "edition": [0,1,2,3,4],
+                    "gridItemConfig": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "type": {
+                        "line": {
+                            "dataDirection": "vertical",
+                            "dataType": "number",
+                            "legendPosition": "bottom",
+                            "labelFirstColumn": false,
+                            "columnsAsLabels": true
+                        }
+                    },
+                    "queryFile": "./sql/mssql-instance-xelio.sql",
+                    "details": {
+                        "queryFile": "./sql/mssql-instance-xelio.sql",
+                        "label": {
+                            "icon": "database",
+                            "column": "Event Time"
+                        },
+                        "actions": null
+                    }
+                }
+            },
+            {
+                "id": "mssql-instance-xelmemory",
+                "contrib": {
+                    "name": "XEL Memory Stats",
+                    "provider": "MSSQL",
+                    "edition": [0,1,2,3,4],
+                    "gridItemConfig": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "type": {
+                        "line": {
+                            "dataDirection": "vertical",
+                            "dataType": "number",
+                            "legendPosition": "bottom",
+                            "labelFirstColumn": false,
+                            "columnsAsLabels": true
+                        }
+                    },
+                    "queryFile": "./sql/mssql-instance-xelmemory.sql",
+                    "details": {
+                        "queryFile": "./sql/mssql-instance-xelmemory.sql",
+                        "label": {
+                            "icon": "database",
+                            "column": "Event Time"
+                        },
+                        "actions": null
+                    }
+                }
+            }
+        ]
+    }
+}

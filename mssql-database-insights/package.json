@@ -1,5 +1,5 @@
 {
-    "name": "database-insights",
+    "name": "mssql-database-insights",
     "version": "0.1.0",
     "publisher": "matticusau",
     "engines": {
@@ -8,7 +8,7 @@
     "contributes": {
         "insights": [
             {
-                "id": "db-spaceused-insight",
+                "id": "mssql-db-spaceused",
                 "contrib": {
                     "name": "Database Space Used",
                     "provider": "MSSQL",
@@ -26,9 +26,9 @@
                             "columnsAsLabels": false
                         }
                     },
-                    "queryFile": "./sql/db_spaceused.sql",
+                    "queryFile": "./sql/mssql-db-spaceused.sql",
                     "details": {
-                        "queryFile": "./sql/db_spaceused_detail.sql",
+                        "queryFile": "./sql/mssql-db-spaceused-detail.sql",
                         "label": {
                             "icon": "database",
                             "column": "file_name",
@@ -62,7 +62,7 @@
                 }
             },
             {
-                "id": "db-filetype-spaceused-insight",
+                "id": "mssql-db-spaceused-filetype",
                 "contrib": {
                     "name": "Database Space Used (File Type)",
                     "provider": "MSSQL",
@@ -80,9 +80,9 @@
                             "columnsAsLabels": true
                         }
                     },
-                    "queryFile": "./sql/db_filetype_spaceused.sql",
+                    "queryFile": "./sql/mssql-db-spaceused-filetype.sql",
                     "details": {
-                        "queryFile": "./sql/db_spaceused_detail.sql",
+                        "queryFile": "./sql/mssql-db-spaceused-detail.sql",
                         "label": {
                             "icon": "database",
                             "column": "file_name",

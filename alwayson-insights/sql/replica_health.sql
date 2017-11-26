@@ -1,6 +1,7 @@
 -- 
 -- Author: Matticusau
 -- Purpose: Provides summary data for the Replica Health Insights Widget
+-- License: https://github.com/Matticusau/sqlops-widgets/blob/master/LICENSE
 -- 
 DECLARE @totalReplicaCnt INT = (
     SELECT Count(connected_state_desc)
