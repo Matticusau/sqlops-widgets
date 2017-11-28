@@ -8,7 +8,7 @@
     "contributes": {
         "insights": [
             {
-                "id": "ag-replica-health-insight",
+                "id": "alwayson-ag-replica-health",
                 "contrib": {
                     "name": "AG Replica Status",
                     "provider": "MSSQL",
@@ -21,14 +21,14 @@
                         "pie": {
                             "dataDirection": "vertical",
                             "dataType": "number",
-                            "legendPosition": "top",
+                            "legendPosition": "bottom",
                             "labelFirstColumn": false,
                             "columnsAsLabels": false
                         }
                     },
-                    "queryFile": "./sql/replica_health.sql",
+                    "queryFile": "./sql/alwayson-ag-replica-health.sql",
                     "details": {
-                        "queryFile": "./sql/replica_health_detail.sql",
+                        "queryFile": "./sql/alwayson-ag-replica-health-detail.sql",
                         "label": {
                             "icon": "database",
                             "column": "replica_server_name",
@@ -55,7 +55,7 @@
                 }
             },
             {
-                "id": "ag-db-sync-insight",
+                "id": "alwayson-ag-db-sync",
                 "contrib": {
                     "name": "AG DB Sync Status",
                     "provider": "MSSQL",
@@ -68,14 +68,14 @@
                         "pie": {
                             "dataDirection": "vertical",
                             "dataType": "number",
-                            "legendPosition": "top",
+                            "legendPosition": "bottom",
                             "labelFirstColumn": false,
                             "columnsAsLabels": false
                         }
                     },
-                    "queryFile": "./sql/db_sync_health.sql",
+                    "queryFile": "./sql/alwayson-ag-db-sync.sql",
                     "details": {
-                        "queryFile": "./sql/db_health_detail.sql",
+                        "queryFile": "./sql/alwayson-ag-db-health-detail.sql",
                         "label": {
                             "icon": "database",
                             "column": "replica_server_name",
@@ -102,7 +102,7 @@
                 }
             },
             {
-                "id": "ag-db-rpo-rto-insight",
+                "id": "alwayson-ag-db-rpo-rto",
                 "contrib": {
                     "name": "AG DB Rto/Rpo",
                     "provider": "MSSQL",
@@ -112,17 +112,17 @@
                         "sizey": 1
                     },
                     "type": {
-                        "bar": {
+                        "horizontalBar": {
                             "dataDirection": "vertical",
-                            "dataType": "number",
-                            "legendPosition": "top",
+                            "dataType": "point",
+                            "legendPosition": "bottom",
                             "labelFirstColumn": false,
                             "columnsAsLabels": true
                         }
                     },
-                    "queryFile": "./sql/db_rpo_rto_health.sql",
+                    "queryFile": "./sql/alwayson-ag-db-rpo-rto.sql",
                     "details": {
-                        "queryFile": "./sql/db_health_detail.sql",
+                        "queryFile": "./sql/alwayson-ag-db-health-detail.sql",
                         "label": {
                             "icon": "database",
                             "column": "replica_server_name",

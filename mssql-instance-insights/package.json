@@ -69,7 +69,7 @@
                     "edition": [0,1,2,3,4],
                     "gridItemConfig": {
                         "x": 2,
-                        "y": 1
+                        "y": 2
                     },
                     "type": {
                         "line": {
@@ -99,7 +99,7 @@
                     "edition": [0,1,2,3,4],
                     "gridItemConfig": {
                         "x": 2,
-                        "y": 1
+                        "y": 2
                     },
                     "type": {
                         "line": {
@@ -129,7 +129,7 @@
                     "edition": [0,1,2,3,4],
                     "gridItemConfig": {
                         "x": 2,
-                        "y": 1
+                        "y": 2
                     },
                     "type": {
                         "line": {

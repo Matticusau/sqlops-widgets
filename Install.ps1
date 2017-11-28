@@ -3,13 +3,16 @@ Param (
     [switch]$Force
     ,
     # in the case that the same version is already installed, still overwrite it. Useful in Development environments.
-    [switch]$overwriteExisting
+    [switch]$OverwriteExisting
 )
 
 [string]$scriptPath = $PSScriptRoot;
 
 # set the SQL Operations Studio Extensions path
 $sqlopsExtDir = '~\.sqlops\extensions';
+
+# set the array of any exlusions when copying to the installation path
+$excludeFromCopy = @('*.md')
 
 $packageFiles = Get-ChildItem -Path $scriptPath -Recurse -Filter 'package.json'
 
@@ -58,6 +61,10 @@ foreach ($package in $packageFiles)
             {
                 [string]$message = 'Do you want to upgrade {0} from version {2} to version {1}? (Y/N)' -f $packageJson.name, $packageJson.version, $existingPackageJson.version;
             }
+            else {
+                # because we are doing an upgrade use the OverWriteExisting switch to determine if we proceed
+                $proceed = $OverwriteExisting;
+            }
         }
         else {
             [string]$message = 'Do you want to install {0} of version {1}? (Y/N)' -f $packageJson.name, $packageJson.version;
@@ -82,14 +89,14 @@ foreach ($package in $packageFiles)
                 Write-Verbose -Message ('Upgrading package {0}' -f $packageJson.name);
                 # to keep the install clean and in case we rename files remove the existing and copy new
                 Remove-Item -Path $packageDest -Force -Recurse;
-                Copy-Item -Path $package.DirectoryName -Destination $sqlopsExtDir -Container -Recurse;
+                Copy-Item -Path $package.DirectoryName -Destination $sqlopsExtDir -Container -Recurse -Exclude $excludeFromCopy;
             }
-            elseif ($overwriteExisting) {
+            elseif ($OverwriteExisting) {
                 # the user chose to overwrite the existing 
                 Write-Verbose -Message ('Overwriting existing package {0}' -f $packageJson.name);
                 # to keep the install clean and in case we rename files remove the existing and copy new
                 Remove-Item -Path $packageDest -Force -Recurse;
-                Copy-Item -Path $package.DirectoryName -Destination $sqlopsExtDir -Container -Recurse;
+                Copy-Item -Path $package.DirectoryName -Destination $sqlopsExtDir -Container -Recurse -Exclude $excludeFromCopy;
             }
             else {
                 Write-Verbose -Message ('Nothing to do for existing package {0}' -f $packageJson.name);
@@ -98,8 +105,11 @@ foreach ($package in $packageFiles)
         else {
             # fresh install
             Write-Verbose -Message ('Installing package {0}' -f $packageJson.name);
-            Copy-Item -Path $package.DirectoryName -Destination $sqlopsExtDir -Container -Recurse;
+            Copy-Item -Path $package.DirectoryName -Destination $sqlopsExtDir -Container -Recurse -Exclude $excludeFromCopy;
         }
+    }
+    else {
+        Write-Verbose -Message ('Package {0} already installed, use -OverwriteExisting to upgrade anyway' -f $packageJson.name);
     }
 
     Write-Verbose -Message ('Finished processing package {0}' -f $packageJson.name);
