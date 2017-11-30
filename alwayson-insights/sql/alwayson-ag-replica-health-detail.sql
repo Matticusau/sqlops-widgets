@@ -1,6 +1,7 @@
 -- 
 -- Author: Matticusau
 -- Purpose: Provides detailed data for the Replica Health Insights Widget
+-- License: https://github.com/Matticusau/sqlops-widgets/blob/master/LICENSE
 -- 
 SELECT ag.name [ag_name]
     , ar.replica_server_name
