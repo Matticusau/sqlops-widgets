@@ -1,6 +1,6 @@
 {
-    "name": "alwayson-insights",
-    "version": "0.2.0",
+    "name": "mssql-instance-insights",
+    "version": "0.1.0",
     "publisher": "matticusau",
     "engines": {
         "vscode": "*"
@@ -8,124 +8,84 @@
     "contributes": {
         "insights": [
             {
-                "id": "alwayson-ag-replica-health",
+                "id": "mssql-instance-waits",
                 "contrib": {
-                    "name": "AG Replica Status",
+                    "name": "Top 10 Waits",
                     "provider": "MSSQL",
                     "edition": [0,1,2,3,4],
                     "gridItemConfig": {
-                        "x": 1,
+                        "x": 2,
                         "y": 1
-                    },
-                    "type": {
-                        "pie": {
-                            "dataDirection": "vertical",
-                            "dataType": "number",
-                            "legendPosition": "bottom",
-                            "labelFirstColumn": false,
-                            "columnsAsLabels": false
-                        }
-                    },
-                    "queryFile": "./sql/alwayson-ag-replica-health.sql",
-                    "details": {
-                        "queryFile": "./sql/alwayson-ag-replica-health-detail.sql",
-                        "label": {
-                            "icon": "database",
-                            "column": "replica_server_name",
-                            "state": [
-                                {
-                                    "condition": {
-                                        "if": "equals",
-                                        "equals": "DISCONNECTED"
-                                    },
-                                    "color": "red"
-                                },
-                                {
-                                    "condition": {
-                                        "if": "equals",
-                                        "equals": "CONNECTED"
-                                    },
-                                    "color": "green"
-                                }
-                            ]
-                        },
-                        "value": "connected_state_desc",
-                        "actions": null
-                    }
-                }
-            },
-            {
-                "id": "alwayson-ag-db-sync",
-                "contrib": {
-                    "name": "AG DB Sync Status",
-                    "provider": "MSSQL",
-                    "edition": [0,1,2,3,4],
-                    "gridItemConfig": {
-                        "x": 1,
-                        "y": 1
-                    },
-                    "type": {
-                        "pie": {
-                            "dataDirection": "vertical",
-                            "dataType": "number",
-                            "legendPosition": "bottom",
-                            "labelFirstColumn": false,
-                            "columnsAsLabels": false
-                        }
-                    },
-                    "queryFile": "./sql/alwayson-ag-db-sync.sql",
-                    "details": {
-                        "queryFile": "./sql/alwayson-ag-db-health-detail.sql",
-                        "label": {
-                            "icon": "database",
-                            "column": "replica_server_name",
-                            "state": [
-                                {
-                                    "condition": {
-                                        "if": "equals",
-                                        "equals": "NOT_HEALTHY"
-                                    },
-                                    "color": "red"
-                                },
-                                {
-                                    "condition": {
-                                        "if": "equals",
-                                        "equals": "HEALTHY"
-                                    },
-                                    "color": "green"
-                                }
-                            ]
-                        },
-                        "value": "synchronization_health_desc",
-                        "actions": null
-                    }
-                }
-            },
-            {
-                "id": "alwayson-ag-db-rpo-rto",
-                "contrib": {
-                    "name": "AG DB Rto/Rpo",
-                    "provider": "MSSQL",
-                    "edition": [0,1,2,3,4],
-                    "gridItemConfig": {
-                        "sizex": 2,
-                        "sizey": 1
                     },
                     "type": {
                         "horizontalBar": {
                             "dataDirection": "vertical",
-                            "dataType": "point",
+                            "dataType": "number",
+                            "legendPosition": "none",
+                            "labelFirstColumn": false,
+                            "columnsAsLabels": false
+                        }
+                    },
+                    "queryFile": "./sql/mssql-instance-waits.sql",
+                    "details": {
+                        "queryFile": "./sql/mssql-instance-waits-detail.sql",
+                        "label": {
+                            "icon": "database",
+                            "column": "WaitType",
+                            "state": [
+                                {
+                                    "condition": {
+                                        "if": "greaterthan",
+                                        "greaterthan": "80"
+                                    },
+                                    "color": "red"
+                                },
+                                {
+                                    "condition": {
+                                        "if": "greaterthan",
+                                        "greaterthan": "40"
+                                    },
+                                    "color": "orange"
+                                },
+                                {
+                                    "condition": {
+                                        "if": "lessthan",
+                                        "lessthan": "41"
+                                    },
+                                    "color": "green"
+                                }
+                            ]
+                        },
+                        "value": "Percentage",
+                        "actions": null
+                    }
+                }
+            },
+            {
+                "id": "mssql-instance-xelsystem",
+                "contrib": {
+                    "name": "XEL System Stats",
+                    "provider": "MSSQL",
+                    "edition": [0,1,2,3,4],
+                    "gridItemConfig": {
+                        "x": 2,
+                        "y": 2
+                    },
+                    "type": {
+                        "line": {
+                            "dataDirection": "vertical",
+                            "dataType": "number",
                             "legendPosition": "bottom",
                             "labelFirstColumn": false,
                             "columnsAsLabels": true
                         }
                     },
-                    "queryFile": "./sql/alwayson-ag-db-rpo-rto.sql",
+                    "queryFile": "./sql/mssql-instance-xelsystem.sql",
                     "details": {
-                        "queryFile": "./sql/alwayson-ag-db-health-detail.sql",
+                        "queryFile": "./sql/mssql-instance-xelsystem.sql",
                         "label": {
                             "icon": "database",
-                            "column": "replica_server_name",
+                            "column": "Event Time",
                             "state": [
                                 {
                                     "condition": {
@@ -140,17 +100,104 @@
                                         "equals": "0"
                                     },
                                     "color": "green"
+                                }
+                            ]
+                        },
+                        "value": "Non Yields Reported",
+                        "actions": null
+                    }
+                }
+            },
+            {
+                "id": "mssql-instance-xelio",
+                "contrib": {
+                    "name": "XEL IO Stats",
+                    "provider": "MSSQL",
+                    "edition": [0,1,2,3,4],
+                    "gridItemConfig": {
+                        "x": 2,
+                        "y": 2
+                    },
+                    "type": {
+                        "line": {
+                            "dataDirection": "vertical",
+                            "dataType": "number",
+                            "legendPosition": "bottom",
+                            "labelFirstColumn": false,
+                            "columnsAsLabels": true
+                        }
+                    },
+                    "queryFile": "./sql/mssql-instance-xelio.sql",
+                    "details": {
+                        "queryFile": "./sql/mssql-instance-xelio.sql",
+                        "label": {
+                            "icon": "database",
+                            "column": "Event Time",
+                            "state": [
+                                {
+                                    "condition": {
+                                        "if": "greaterthan",
+                                        "greaterthan": "0"
+                                    },
+                                    "color": "red"
                                 },
                                 {
                                     "condition": {
                                         "if": "equals",
-                                        "equals": "NULL"
+                                        "equals": "0"
                                     },
                                     "color": "green"
                                 }
                             ]
                         },
-                        "value": "estimated_data_loss",
+                        "value": "Total Long IOs",
+                        "actions": null
+                    }
+                }
+            },
+            {
+                "id": "mssql-instance-xelmemory",
+                "contrib": {
+                    "name": "XEL Memory Stats",
+                    "provider": "MSSQL",
+                    "edition": [0,1,2,3,4],
+                    "gridItemConfig": {
+                        "x": 2,
+                        "y": 2
+                    },
+                    "type": {
+                        "line": {
+                            "dataDirection": "vertical",
+                            "dataType": "number",
+                            "legendPosition": "bottom",
+                            "labelFirstColumn": false,
+                            "columnsAsLabels": true
+                        }
+                    },
+                    "queryFile": "./sql/mssql-instance-xelmemory.sql",
+                    "details": {
+                        "queryFile": "./sql/mssql-instance-xelmemory.sql",
+                        "label": {
+                            "icon": "database",
+                            "column": "Event Time",
+                            "state": [
+                                {
+                                    "condition": {
+                                        "if": "lessthan",
+                                        "lessthan": "4"
+                                    },
+                                    "color": "orange"
+                                },
+                                {
+                                    "condition": {
+                                        "if": "greaterthan",
+                                        "greaterthan": "4"
+                                    },
+                                    "color": "green"
+                                }
+                            ]
+                        },
+                        "value": "Available Physical Memory (GB)",
                         "actions": null
                     }
                 }

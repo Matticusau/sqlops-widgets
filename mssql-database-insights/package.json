@@ -1,0 +1,120 @@
+{
+    "name": "mssql-database-insights",
+    "version": "0.1.0",
+    "publisher": "matticusau",
+    "engines": {
+        "vscode": "*"
+    },
+    "contributes": {
+        "insights": [
+            {
+                "id": "mssql-db-spaceused",
+                "contrib": {
+                    "name": "Database Space Used",
+                    "provider": "MSSQL",
+                    "edition": [0,1,2,3,4],
+                    "gridItemConfig": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "type": {
+                        "pie": {
+                            "dataDirection": "horizontal",
+                            "dataType": "number",
+                            "legendPosition": "bottom",
+                            "labelFirstColumn": false,
+                            "columnsAsLabels": false
+                        }
+                    },
+                    "queryFile": "./sql/mssql-db-spaceused.sql",
+                    "details": {
+                        "queryFile": "./sql/mssql-db-spaceused-detail.sql",
+                        "label": {
+                            "icon": "database",
+                            "column": "file_name",
+                            "state": [
+                                {
+                                    "condition": {
+                                        "if": "greaterthan",
+                                        "greaterthan": "95"
+                                    },
+                                    "color": "red"
+                                },
+                                {
+                                    "condition": {
+                                        "if": "greaterthan",
+                                        "greaterthan": "85"
+                                    },
+                                    "color": "orange"
+                                },
+                                {
+                                    "condition": {
+                                        "if": "lessthan",
+                                        "lessthan": "86"
+                                    },
+                                    "color": "green"
+                                }
+                            ]
+                        },
+                        "value": "used_space_percent",
+                        "actions": null
+                    }
+                }
+            },
+            {
+                "id": "mssql-db-spaceused-filetype",
+                "contrib": {
+                    "name": "Database Space Used (File Type)",
+                    "provider": "MSSQL",
+                    "edition": [0,1,2,3,4],
+                    "gridItemConfig": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "type": {
+                        "horizontalBar": {
+                            "dataDirection": "vertical",
+                            "dataType": "number",
+                            "legendPosition": "bottom",
+                            "labelFirstColumn": true,
+                            "columnsAsLabels": true
+                        }
+                    },
+                    "queryFile": "./sql/mssql-db-spaceused-filetype.sql",
+                    "details": {
+                        "queryFile": "./sql/mssql-db-spaceused-detail.sql",
+                        "label": {
+                            "icon": "database",
+                            "column": "file_name",
+                            "state": [
+                                {
+                                    "condition": {
+                                        "if": "greaterthan",
+                                        "greaterthan": "95"
+                                    },
+                                    "color": "red"
+                                },
+                                {
+                                    "condition": {
+                                        "if": "greaterthan",
+                                        "greaterthan": "85"
+                                    },
+                                    "color": "orange"
+                                },
+                                {
+                                    "condition": {
+                                        "if": "lessthan",
+                                        "lessthan": "86"
+                                    },
+                                    "color": "green"
+                                }
+                            ]
+                        },
+                        "value": "used_space_percent",
+                        "actions": null
+                    }
+                }
+            }
+        ]
+    }
+}

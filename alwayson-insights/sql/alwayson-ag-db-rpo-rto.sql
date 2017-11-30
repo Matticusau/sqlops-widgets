@@ -1,6 +1,7 @@
 -- 
 -- Author: Matticusau
 -- Purpose: Provides summary data for the AlwaysOn DB RPO RTO Insights Widget
+-- License: https://github.com/Matticusau/sqlops-widgets/blob/master/LICENSE
 -- 
 SELECT ar.replica_server_name [replica_name]
     , ag.health_check_timeout + (drs.redo_queue_size / NULLIF(drs.redo_rate,0)) [estimated_recovery_time]
