@@ -16,7 +16,7 @@ The following example shows the Server Dashboard configured with some of our wid
 
 The following example shows the Database Dashboard configured with some built-in widgets and also our AlwaysOn Database RPO/RTO and Health Widget.
 
-![Database Dashboard](docs/images/database-dashboard.png)
+![Database Dashboard](docs/images/database-dashboard1.png)
 
 An alternative Database Dashboard with database size and alwayson widgets
 
