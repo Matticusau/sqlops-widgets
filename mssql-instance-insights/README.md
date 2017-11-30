@@ -40,7 +40,7 @@ To enable this widget add the following json to either your user or workspace se
 }
 ```
 
-## mssql-instance-xelsystem
+## mssql-instance-xelsystem (PREVIEW)
 
 This Server Dashboard widget includes information on the general system performance captured by the Extended Events System Health Session for the SQL Instance. Information will be shown in the form of a line chart. If the System Health Session is stopped or the instance has been restarted will affect the amount of data available for this widget.
 
@@ -65,7 +65,7 @@ To enable this widget add the following json to either your user or workspace se
 }
 ```
 
-## mssql-instance-xelio
+## mssql-instance-xelio (PREVIEW)
 
 This Server Dashboard widget includes information on the IO performance captured by the Extended Events System Health Session for the SQL Instance. Information will be shown in the form of a line chart. If the System Health Session is stopped or the instance has been restarted will affect the amount of data available for this widget.
 
@@ -90,7 +90,7 @@ To enable this widget add the following json to either your user or workspace se
 }
 ```
 
-## mssql-instance-xelmemory
+## mssql-instance-xelmemory (PREVIEW)
 
 This Server Dashboard widget includes information on the Memory performance captured by the Extended Events System Health Session for the SQL Instance. Information will be shown in the form of a line chart. If the System Health Session is stopped or the instance has been restarted will affect the amount of data available for this widget.
 

@@ -23,7 +23,7 @@ This Server Dashboard widget includes information on the health of the Availabil
 
 ![Screen Shot](../docs/images/alwayson-insights/ag-replica-health-insight.png)
 
-> NOTE: in v1.0.0 this widget was called `ag-replica-health-insight`
+> NOTE: in v0.1.0.0 this widget was called `ag-replica-health-insight`
 
 You can access more information about the replicas in the detailed fly-out displayed when you select "..." on the widget.
 
@@ -47,7 +47,7 @@ This Database Dashboard widget includes information on the health of the databas
 
 ![Screen Shot](../docs/images/alwayson-insights/ag-db-sync-insight.png)
 
-> NOTE: in v1.0.0 this widget was called `ag-db-sync-insight`
+> NOTE: in v0.1.0.0 this widget was called `ag-db-sync-insight`
 
 You can access more information about the database replicas in the detailed fly-out displayed when you select "..." on the widget.
 
@@ -70,7 +70,7 @@ This Database Dashboard widget includes information on the synchronization state
 
 ![Screen Shot](../docs/images/alwayson-insights/ag-db-rpo-rto-insight.png)
 
-> NOTE: in v1.0.0 this widget was called `ag-db-rpo-rto-insight`
+> NOTE: in v0.1.0.0 this widget was called `ag-db-rpo-rto-insight`
 
 You can access more information about the synchronization state in the detailed fly-out displayed when you select "..." on the widget.
 

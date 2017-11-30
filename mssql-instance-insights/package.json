@@ -85,8 +85,25 @@
                         "queryFile": "./sql/mssql-instance-xelsystem.sql",
                         "label": {
                             "icon": "database",
-                            "column": "Event Time"
+                            "column": "Event Time",
+                            "state": [
+                                {
+                                    "condition": {
+                                        "if": "greaterthan",
+                                        "greaterthan": "0"
+                                    },
+                                    "color": "red"
+                                },
+                                {
+                                    "condition": {
+                                        "if": "equals",
+                                        "equals": "0"
+                                    },
+                                    "color": "green"
+                                }
+                            ]
                         },
+                        "value": "Non Yields Reported",
                         "actions": null
                     }
                 }
@@ -115,8 +132,25 @@
                         "queryFile": "./sql/mssql-instance-xelio.sql",
                         "label": {
                             "icon": "database",
-                            "column": "Event Time"
+                            "column": "Event Time",
+                            "state": [
+                                {
+                                    "condition": {
+                                        "if": "greaterthan",
+                                        "greaterthan": "0"
+                                    },
+                                    "color": "red"
+                                },
+                                {
+                                    "condition": {
+                                        "if": "equals",
+                                        "equals": "0"
+                                    },
+                                    "color": "green"
+                                }
+                            ]
                         },
+                        "value": "Total Long IOs",
                         "actions": null
                     }
                 }
@@ -145,8 +179,25 @@
                         "queryFile": "./sql/mssql-instance-xelmemory.sql",
                         "label": {
                             "icon": "database",
-                            "column": "Event Time"
+                            "column": "Event Time",
+                            "state": [
+                                {
+                                    "condition": {
+                                        "if": "lessthan",
+                                        "lessthan": "4"
+                                    },
+                                    "color": "orange"
+                                },
+                                {
+                                    "condition": {
+                                        "if": "greaterthan",
+                                        "greaterthan": "4"
+                                    },
+                                    "color": "green"
+                                }
+                            ]
                         },
+                        "value": "Available Physical Memory (GB)",
                         "actions": null
                     }
                 }
