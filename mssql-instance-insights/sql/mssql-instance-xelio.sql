@@ -31,11 +31,12 @@ BEGIN
         EventXML.value('(/event/data/text)[1]','varchar(255)') as Component,
         EventXML.value('(/event/data/value/ioSubsystem/@ioLatchTimeouts)[1]','bigint') as [IO Latch Timeouts],
         EventXML.value('(/event/data/value/ioSubsystem/@totalLongIos)[1]','bigint') as [Total Long IOs],
-        EventXML.value('(/event/data/value/ioSubsystem/longestPendingRequests/pendingRequest/@filePath)[1]','varchar(8000)') as [Longest Pending Request File],
-        EventXML.value('(/event/data/value/ioSubsystem/longestPendingRequests/pendingRequest/@duration)[1]','bigint') as [Longest Pending IO Duration]
+        ISNULL(EventXML.value('(/event/data/value/ioSubsystem/longestPendingRequests/pendingRequest/@filePath)[1]','varchar(8000)'),'') as [Longest Pending Request File],
+        ISNULL(EventXML.value('(/event/data/value/ioSubsystem/longestPendingRequests/pendingRequest/@duration)[1]','bigint'),0) as [Longest Pending IO Duration]
     FROM CTE_HealthSession
     WHERE EventXML.value('(/event/@name)[1]', 'varchar(255)') = 'sp_server_diagnostics_component_result'
     AND EventXML.value('(/event/data/text)[1]','varchar(255)') = 'IO_SUBSYSTEM'
+    AND DATEADD(mi,@UTCDateDiff,EventXML.value('(/event/@timestamp)[1]','datetime')) >= DATEADD(mi, -240, GETUTCDATE())
     ORDER BY [Event Time];
 
     -- Clean up

@@ -1,5 +1,7 @@
 # sqlops-widgets
 
+[![Build status](https://ci.appveyor.com/api/projects/status/gumh9h69ex4qjle3/branch/master?svg=true)](https://ci.appveyor.com/project/Matticusau/sqlops-widgets/branch/master) [![Build status](https://ci.appveyor.com/api/projects/status/gumh9h69ex4qjle3/branch/dev?svg=true)](https://ci.appveyor.com/project/Matticusau/sqlops-widgets/branch/dev)
+
 A collection of SQL Operations Studio Dashboard Widgets.
 
 SQL Operations Studio (sqlopsstudio) is the new cross-platform, cross-database open source tool released by Microsoft. The tool provides the ability to customise the dashboard with different widgets that are either built-in or custom. This project focuses on building some custom widgets to extend the functionality to include important information for DBA's and Developers.
@@ -26,9 +28,9 @@ An alternative Database Dashboard with database size and alwayson widgets
 
 The following insight packs are included in this project. For more info see the _README.md_ in each insight pack.
 
-* [AlwaysOn-Insights](alwayson-insights/README.md).
-* [MSSQL-Database-Insights](mssql-database-insights/README.md).
-* [MSSQL-Instance-Insights](mssql-instance-insights/README.md).
+- [AlwaysOn-Insights](alwayson-insights/README.md).
+- [MSSQL-Database-Insights](mssql-database-insights/README.md).
+- [MSSQL-Instance-Insights](mssql-instance-insights/README.md).
 
 ## Change log
 
