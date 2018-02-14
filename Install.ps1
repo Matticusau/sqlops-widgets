@@ -29,7 +29,18 @@ foreach ($package in $packageFiles)
 
     # get the folder name
     $packageFolderName = Split-Path -Path $package.DirectoryName -Leaf;
-    $packageJson = (Get-Content $package.FullName) | ConvertFrom-Json;
+    try
+    {
+        $packageJson = (Get-Content $package.FullName) | ConvertFrom-Json;
+    }
+    catch 
+    {
+        # use a default json if required
+        $packageJson = @{
+            name = $package.Directory;
+            version = '0.0.1';
+        }
+    }
 
     # check if we need to upgrade a preinstalled package
     [bool]$performUpgrade = $false;

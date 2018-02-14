@@ -2,9 +2,33 @@
     "name": "mssql-instance-insights",
     "version": "0.1.0",
     "publisher": "matticusau",
+    "license": "MIT",
+    "author": {
+        "email": "matt.lavery@outlook.com",
+        "name": "Matt Lavery",
+        "url": "http://www.matticusau.net"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/matticusau/sqlops-widgets"
+    },
+    "bugs": {
+        "url": "https://github.com/matticusau/sqlops-widgets/issues",
+        "email": "matt.lavery@outlook.com"
+    },
     "engines": {
         "vscode": "*"
     },
+    "categories": [
+        "Other"
+    ],
+    "keywords": [
+        "sqlops",
+        "sql",
+        "sqlops-studio",
+        "studio"
+    ],
+    "homepage": "https://github.com/matticusau/sqlops-widgets",
     "contributes": {
         "insights": [
             {
