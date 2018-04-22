@@ -20,4 +20,4 @@ This project is released under the [MIT License](https://github.com/Matticusau/s
 
 ## Contributors
 
-* Matticusau [GitHub](https://github.com/Matticusau) | [twitter](https://twitter.com/matticusau)
+- Matticusau [GitHub](https://github.com/Matticusau) | [twitter](https://twitter.com/matticusau)
