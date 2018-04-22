@@ -42,6 +42,7 @@ BEGIN
     FROM CTE_HealthSession
     WHERE EventXML.value('(/event/@name)[1]', 'varchar(255)') = 'sp_server_diagnostics_component_result'
     AND EventXML.value('(/event/data/text)[1]','varchar(255)') = 'RESOURCE'
+    AND DATEADD(mi,@UTCDateDiff,EventXML.value('(/event/@timestamp)[1]','datetime')) >= DATEADD(mi, -240, GETUTCDATE())
     ORDER BY [Event Time] desc;
 
     -- Clean Up

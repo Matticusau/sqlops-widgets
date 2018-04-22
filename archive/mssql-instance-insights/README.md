@@ -69,7 +69,7 @@ To enable this widget add the following json to either your user or workspace se
 
 This Server Dashboard widget includes information on the IO performance captured by the Extended Events System Health Session for the SQL Instance. Information will be shown in the form of a line chart. If the System Health Session is stopped or the instance has been restarted will affect the amount of data available for this widget.
 
-![mssql-instance-xelio.png](../docs/images/mssql-instance-insights/mssql-instance-xelio.png)
+![mssql-instance-xelio.png](../docs/images/mssql-instance-insights/mssql-instance-xelio2.png)
 
 You can access more information in the detailed fly-out displayed when you select "..." on the widget.
 

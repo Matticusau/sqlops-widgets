@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## 0.2.1.0
+
+- Code archived to /archive
+- Documentation updated
+
 ## 0.2.0.0
 
 - BREAKING CHANGE: alwayson-insights renamed with _alwayson_ prefix
